@@ -19,7 +19,12 @@ The system is built using the Spring Cloud ecosystem and follows a distributed m
 
 ## 🏁 Startup Instructions (Step-by-Step)
 
-To ensure the system functions correctly, the services **must** be started in the following specific order:
+### **Step 0: Infrastructure (Databases)**
+To start the MySQL databases for all services:
+```bash
+docker-compose up -d
+```
+This will initialize all required databases (`agms_auth`, `agms_zone`, etc.) with root credentials (`root`/`root`).
 
 ### **Step 1: Infrastructure Services (Start First)**
 
@@ -31,7 +36,10 @@ To ensure the system functions correctly, the services **must** be started in th
 2.  **Config Server**
     - **Folder:** `configserver`
     - **Port:** `8888`
-    - **Note:** This service fetches configurations from the Git repo mentioned above. Ensure it is UP before proceeding.
+    - **Run Mode:**
+        - **Online (Git):** Fetches from GitHub (requires internet).
+        - **Offline (Native):** Set `-Dspring.profiles.active=native` to use local files in `config-repo/`.
+    - **Note:** Ensure it is UP before proceeding.
 
 3.  **API Gateway**
     - **Folder:** `api-gateway`
