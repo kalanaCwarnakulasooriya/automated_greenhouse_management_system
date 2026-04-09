@@ -49,11 +49,11 @@ This will initialize all required databases (`agms_auth`, `agms_zone`, etc.) wit
 ### **Step 2: Domain Microservices (Start Second)**
 
 Once the infrastructure is UP and running, start the following services:
-- **Auth/Identity Service** (Port: `8085`) - User registration and JWT generation.
-- **Zone Management Service** (Port: `8081`) - Greenhouse zone and device registration logic.
-- **Sensor Telemetry Service** (Port: `8082`) - Acts as a data bridge to fetch telemetry from External IoT API.
+- **Sensor Telemetry Service** (Port: `8081`) - Acts as a data bridge to fetch telemetry from External IoT API.
+- **Auth/Identity Service** (Port: `8082`) - User registration and JWT generation.
 - **Automation Service** (Port: `8083`) - Rule engine that processes sensor data and triggers actions.
 - **Crop Inventory Service** (Port: `8084`) - Manages crop batches and their growth lifecycle stages.
+- **Zone Management Service** (Port: `8085`) - Greenhouse zone and device registration logic.
 
 ---
 
